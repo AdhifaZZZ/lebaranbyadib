@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Ucapan Idul Fitri</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    overflow-x: hidden;
+    background: linear-gradient(-45deg, #2ecc71, #3498db);
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
+}
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Fireworks */
+.firework {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: explode 1.2s infinite;
+}
+.firework:nth-child(1){background:red; top:20%; left:30%;}
+.firework:nth-child(2){background:yellow; top:40%; left:70%;}
+.firework:nth-child(3){background:cyan; top:60%; left:50%;}
+.firework:nth-child(4){background:orange; top:30%; left:80%;}
+.firework:nth-child(5){background:lime; top:70%; left:20%;}
+
+@keyframes explode {
+    0% {transform: scale(0.5); opacity: 1;}
+    100% {transform: scale(8); opacity: 0;}
+}
+
+/* Ketupat swing */
+.ketupat {
+    position: fixed;
+    width: 60px;
+    top: -50px;
+    animation: swing 4s ease-in-out infinite;
+}
+@keyframes swing {
+    0% {transform: translateY(0) rotate(-10deg);}
+    50% {transform: translateY(50vh) rotate(10deg);}
+    100% {transform: translateY(100vh) rotate(-10deg);}
+}
+
+/* Envelope animation */
+.envelope {
+    margin-top: 30px;
+    cursor: pointer;
+    width: 120px;
+    transition: transform 0.5s;
+}
+.envelope.open {
+    transform: rotateX(180deg) scale(1.2);
+}
+
+.container {
+    padding: 30px;
+}
+.flag {
+    width: 250px;
+    margin-bottom: 20px;
+}
+.arabic {
+    font-size: 28px;
+    line-height: 1.8;
+    font-weight: bold;
+}
+#amplopPage {
+    display: none;
+    padding: 40px;
+}
+.typing {
+    font-size: 22px;
+    width: 80%;
+    margin: auto;
+    border-right: 3px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 6s steps(60, end), blink 1s infinite;
+}
+@keyframes typing {
+    from {width: 0}
+    to {width: 100%}
+}
+@keyframes blink {
+    0%,100% {border-color: transparent}
+    50% {border-color: white}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Fireworks -->
+<div class="firework"></div>
+<div class="firework"></div>
+<div class="firework"></div>
+<div class="firework"></div>
+<div class="firework"></div>
+
+<!-- Ketupat -->
+<img src="https://cdn-icons-png.flaticon.com/512/2718/2718224.png" class="ketupat" style="left:10%;">
+<img src="https://cdn-icons-png.flaticon.com/512/2718/2718224.png" class="ketupat" style="left:40%;">
+<img src="https://cdn-icons-png.flaticon.com/512/2718/2718224.png" class="ketupat" style="left:70%;">
+
+<div class="container" id="home">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" class="flag">
+
+    <div class="arabic">
+        تَقَبَّلَ اللَّهُ مِنَّا وَمِنكُمْ<br>
+        صِيَامَنَا وَصِيَامَكُمْ<br><br>
+
+        عِيدُ مُبَارَكْ<br>
+        كُلُّ عَامٍ وَأَنْتُمْ بِخَيْرٍ<br><br>
+
+        مِنَ الْعَائِدِينَ وَالْفَائِزِينَ
+    </div>
+
+    <p style="margin-top:20px;">Klik amplop di bawah untuk membuka ucapan 🎁</p>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" id="envelope" class="envelope" onclick="bukaAmplop()">
+</div>
+
+<div id="amplopPage">
+    <h2>🎉 Pantun Lebaran 🎉</h2>
+
+    <div class="typing">
+        Pergi ke pasar membeli ketupat,<br>
+        Tidak lupa membeli kue nastar.<br>
+        Hari raya penuh rahmat,<br>
+        Mohon maaf lahir dan batin ya sahabat tersayang. 💚
+    </div>
+</div>
+
+<script>
+function bukaAmplop() {
+    let env = document.getElementById("envelope");
+    env.classList.add("open");
+
+    setTimeout(() => {
+        document.getElementById("home").style.display = "none";
+        document.getElementById("amplopPage").style.display = "block";
+    }, 800);
+}
+</script>
+
+</body>
+</html>
